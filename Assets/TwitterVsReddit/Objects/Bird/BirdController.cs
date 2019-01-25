@@ -45,7 +45,12 @@ public class BirdController : MonoBehaviour
             y: Input.GetAxis(VerticalAxis)
         );
 
-        //TODO Store axis as Direction8
+        //Store direction of the player
+        if (axis != Vector2.zero)
+        {
+            Direction = DirectionExtensions.Construct(axis.x, axis.y);
+        }
+        
 
         //Apply movement to player
         Move(axis, MoveSpeed);
