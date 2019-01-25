@@ -99,4 +99,30 @@ public static class DirectionExtensions
     {
         return dir8.Rotate(4);
     }
+
+    /// <summary>
+    /// Constructs a Direction8 based on two sign values (0, 1 or -1)
+    /// </summary>
+    /// <param name="signX"></param>
+    /// <param name="signY"></param>
+    /// <returns></returns>
+    public static Direction8 Construct(float signX, float signY)
+    {
+        signX = Math.Sign(signX);
+        signY = Math.Sign(signY);
+
+        if (signX == -1 && signY == -1) return Direction8.DownLeft;
+        if (signX == -1 && signY == +0) return Direction8.Left;
+        if (signX == -1 && signY == +1) return Direction8.UpLeft;
+
+        if (signX == +0 && signY == +1) return Direction8.Up;
+        if (signX == +0 && signY == +0) throw new ArgumentOutOfRangeException("Cannot construct empty Direction8");
+        if (signX == +0 && signY == -1) return Direction8.Down;
+
+        if (signX == +1 && signY == -1) return Direction8.DownRight;
+        if (signX == +1 && signY == +0) return Direction8.Right;
+        if (signX == +1 && signY == +1) return Direction8.UpRight;
+
+        throw new ArgumentOutOfRangeException("Invalid arguments");
+    }
 }
