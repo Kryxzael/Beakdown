@@ -35,6 +35,8 @@ public class BirdController : MonoBehaviourWithID
 
     private void Update()
     {
+        DebugScreenDrawer.Enable("spd", "SPD: " + _rb.velocity);
+
         /*
          *Basic movement
          */
