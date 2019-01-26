@@ -48,7 +48,6 @@ public class Grabber : MonoBehaviour
         item.Grabber = this;
         GrabbedItems.Add(item);
 
-        item.transform.parent = transform;
     }
 
     /// <summary>
@@ -85,7 +84,6 @@ public class Grabber : MonoBehaviour
         }
 
         item.Grabber = null;
-        item.transform.parent = null;
 
         GrabbedItems.Remove(item);
     }

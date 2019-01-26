@@ -22,4 +22,12 @@ public class Grabbable : MonoBehaviour
     /// What bird has grabbed this object
     /// </summary>
     public Grabber Grabber { get; set; }
+
+    private void Update()
+    {
+        if (Grabbed)
+        {
+            transform.position = Grabber.GetComponent<Collider2D>()?.bounds.center ?? transform.position;
+        }
+    }
 }
