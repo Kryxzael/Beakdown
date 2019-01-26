@@ -125,4 +125,44 @@ public static class DirectionExtensions
 
         throw new ArgumentOutOfRangeException("Invalid arguments");
     }
+
+    /// <summary>
+    /// Converts the direction into a Vector2 instance
+    /// </summary>
+    /// <param name="dir8"></param>
+    /// <returns></returns>
+    public static Vector2 ToVector2(this Direction8 dir8)
+    {
+        switch (dir8)
+        {
+            case Direction8.Up:
+                return Vector2.up;
+            case Direction8.UpRight:
+                return new Vector2(1, 1).normalized;
+            case Direction8.Right:
+                return Vector2.right;
+            case Direction8.DownRight:
+                return new Vector2(1, -1).normalized;
+            case Direction8.Down:
+                return Vector2.down;
+            case Direction8.DownLeft:
+                return new Vector2(-1, -1).normalized;
+            case Direction8.Left:
+                return Vector2.left;
+            case Direction8.UpLeft:
+                return new Vector2(-1, 1).normalized;
+            default:
+                throw new ArgumentOutOfRangeException("Not a valid direction");
+        }
+    }
+
+    /// <summary>
+    /// Converts the direction into a Vector2 instance
+    /// </summary>
+    /// <param name="dir8"></param>
+    /// <returns></returns>
+    public static Vector2 ToVector2(this Direction4 dir4)
+    {
+        return dir4.ToDirection8().ToVector2();
+    }
 }
