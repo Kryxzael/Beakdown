@@ -43,6 +43,12 @@ public class BirdController : MonoBehaviourWithID
          *Basic movement
          */
 
+        //Do not move if game is finished
+        if (!this.GetGameManager().GetComponent<Level>().GameRunning)
+        {
+            return;
+        }
+
         //Get movement axis
         Vector2 axis = new Vector2(
             x: Input.GetAxis(HorizontalAxis),
