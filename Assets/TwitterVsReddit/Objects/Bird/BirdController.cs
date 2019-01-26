@@ -7,7 +7,7 @@ using UnityEngine;
 /// A script that allows for controlling of a player
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
-public class BirdController : MonoBehaviour
+public class BirdController : MonoBehaviourWithID
 {
     [Header("Directions")]
     [Description("The input axis that controls horizontal movement")]
