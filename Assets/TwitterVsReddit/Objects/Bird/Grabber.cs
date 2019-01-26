@@ -39,6 +39,12 @@ public class Grabber : MonoBehaviour
     /// <param name="item"></param>
     public void Grab(Grabbable item)
     {
+        //Item is already picked up
+        if (item.Grabber != null)
+        {
+            return;
+        }
+
         item.Grabber = this;
         GrabbedItems.Add(item);
 

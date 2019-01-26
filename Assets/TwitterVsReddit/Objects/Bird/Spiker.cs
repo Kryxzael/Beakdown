@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
+[RequireComponent(typeof(Grabber))]
 public class Spiker : MonoBehaviour
 {
     [Header("Controls")]
@@ -28,67 +29,116 @@ public class Spiker : MonoBehaviour
     [Header("Curves")]
     [Description("The animation curve that scales the beak when charging up")]
     public AnimationCurve BeakDrawbackAnimation;
+
     [Description("The animation curve that scales the beak when releasing the beak")]
     public AnimationCurve ReleaseCurve;
 
     /// <summary>
-    /// Is the player currently holding the charge button?
+    /// The current animation state of the player
     /// </summary>
-    public bool Charging { get; private set; }
+    public State CurrentState;
 
     /// <summary>
-    /// How many seconds have the player been holding the charge button for. This counter resets every time the player presses the charge button
-    /// </summary>
-    private float _beakChargeTime;
-
-    /// <summary>
-    /// How many seconds until the player can attack again
+    /// The current cooldown of the player. The player will automaticly enter the carry or none state when this value is zero
     /// </summary>
     private float _cooldown;
 
-    /// <summary>
-    /// Begin charging your beak
-    /// </summary>
-    public void ChargeBeak()
-    {
-        //Reset break charge time
-        _beakChargeTime = 0;
-        Charging = true;
-    }
+    private float _chargeTime;
 
-    /// <summary>
-    /// Release the beak
-    /// </summary>
-    public void ReleaseBeak()
+    private Grabber _grabber;
+
+    private void Awake()
     {
-        Charging = false;
-        _cooldown = CooldownTime;
+        _grabber = GetComponent<Grabber>();
     }
 
     private void Update()
     {
-        /*
-         * Controls
-         */
+        DebugScreenDrawer.Enable("state", "State Machine: " + CurrentState);
 
-        if (Input.GetButton(SpikeAxis) && !Charging && _cooldown <= 0)
+        switch (CurrentState)
         {
-            ChargeBeak();
-        }
-        else if (!Input.GetButton(SpikeAxis) && Charging)
-        {
-            ReleaseBeak();
-        }
+            case State.None:
+                if (Input.GetButtonDown(SpikeAxis))
+                {
+                    _chargeTime = 0;
+                    CurrentState = State.Charging;
+                }
+                break;
+            case State.Charging:
+                if (!Input.GetButton(SpikeAxis))
+                {
+                    _cooldown = CooldownTime;
+                    CurrentState = State.Grab;
+                }
 
-        if (Charging)
-        {
-            _beakChargeTime += Time.deltaTime;
-            transform.localScale = transform.localScale.SetY(BeakDrawbackAnimation.Evaluate(_beakChargeTime / MaxChargeTime));
+                _chargeTime += Time.deltaTime;
+                transform.localScale = transform.localScale.SetY(BeakDrawbackAnimation.Evaluate(_chargeTime / MaxChargeTime));
+                break;
+            case State.Grab:
+                if (_cooldown <= 0)
+                {
+                    if (_grabber.IsGrabbing)
+                    {
+                        CurrentState = State.Carry;
+                    }
+                    else
+                    {
+                        CurrentState = State.None;
+                    }
+                }
+
+                //Grab objects
+                _grabber.GrabOnHitbox();
+
+                //Stretches beak
+                transform.localScale = transform.localScale.SetY(
+                    1 + ReleaseCurve.Evaluate(1f - (_cooldown / CooldownTime))
+                );
+
+
+                _cooldown -= Time.deltaTime;
+
+                break;
+            case State.Carry:
+                if (Input.GetButtonDown(SpikeAxis))
+                {
+                    _grabber.ReleaseAll();
+                    CurrentState = State.None;
+                }
+                break;
         }
-        else
-        {
-            _cooldown = Math.Max(0, _cooldown - Time.deltaTime);
-            transform.localScale = transform.localScale.SetY(1 + ReleaseCurve.Evaluate(1f - (_cooldown / CooldownTime)));
-        }
+    }
+
+
+    /// <summary>
+    /// Represents a Spiker's animation states
+    /// </summary>
+    public enum State
+    {
+        /// <summary>
+        /// No items are being carried
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// The player is charging their beak
+        /// </summary>
+        Charging = 1,
+
+        /// <summary>
+        /// The player has released their beak
+        /// </summary>
+        Grab = 2,
+
+        /// <summary>
+        /// The player is carrying something
+        /// </summary>
+        Carry = 3,
+
+        /// <summary>
+        /// The player is currently releasing an item
+        /// </summary>
+        Release = 4
     }
 }
