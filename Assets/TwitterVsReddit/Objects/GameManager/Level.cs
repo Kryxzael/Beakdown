@@ -44,6 +44,18 @@ public class Level : MonoBehaviour
         GameRunning = false;
     }
 
+    /// <summary>
+    /// Gets the player with the given ID
+    /// </summary>
+    /// <param name="playerID">Player ID</param>
+    /// <returns></returns>
+    public BirdController GetPlayer(int playerID)
+    {
+        return FindObjectsOfType<BirdController>()
+            .Where(i => i.ID == playerID)
+            .SingleOrDefault();
+    }
+
     private IEnumerator CoTickTime()
     {
         //Ticks the time until it reaches zero seconds
