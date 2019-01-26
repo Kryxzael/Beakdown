@@ -16,6 +16,10 @@ public class BirdController : MonoBehaviour
     [Description("The input axis that controls vertical movement")]
     public string VerticalAxis;
 
+    [Header("Commands")]
+    [Description("The input axis that makes the player grab/release items")]
+    public string GrabReleaseAxis;
+
     [Header("Speeds and Timing")]
     [Description("The base speed of the player")]
     public float MoveSpeed;
@@ -54,6 +58,24 @@ public class BirdController : MonoBehaviour
 
         //Apply movement to player
         Move(axis, MoveSpeed);
+
+        /*
+         * Grabbing
+         */
+        if (Input.GetButtonDown(GrabReleaseAxis))
+        {
+            Grabber grabber = GetComponentInChildren<Grabber>();
+
+            if (grabber.IsGrabbing)
+            {
+                grabber.ReleaseAll();
+            }
+            else
+            {
+                grabber.GrabOnHitbox();
+            }
+        }
+        
     }
 
     /// <summary>
