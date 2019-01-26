@@ -66,4 +66,9 @@ public class BirdController : MonoBehaviour
         //Updates the velocity of the rigidbody
         _rb.velocity = direction * speed;
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.Position2D(), transform.Position2D() + Direction.ToVector2());
+    }
 }

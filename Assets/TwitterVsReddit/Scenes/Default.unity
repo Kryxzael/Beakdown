@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HorizontalAxis: Horizontal
   VerticalAxis: Vertical
-  MoveSpeed: 1
+  MoveSpeed: 2
   Direction: 0
 --- !u!50 &1543671536
 Rigidbody2D:
