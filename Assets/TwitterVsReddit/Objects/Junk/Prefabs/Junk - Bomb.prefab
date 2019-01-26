@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7363769082892469589}
   - component: {fileID: 4978266352572648267}
   - component: {fileID: 5360829005957393511}
+  - component: {fileID: 1507821191072215325}
+  - component: {fileID: 5693965768360027073}
   m_Layer: 0
   m_Name: Junk - Bomb
   m_TagString: Untagged
@@ -94,3 +96,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Value: 5
   SpeedMultipler: 1
+--- !u!114 &1507821191072215325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506228048658303893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37f20a7ac4d9a64fa69ee26ce01b053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &5693965768360027073
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506228048658303893}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.17}
+  serializedVersion: 2
+  m_Radius: 0.31

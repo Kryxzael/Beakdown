@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1631255796947324769}
   - component: {fileID: 3856317859110551935}
   - component: {fileID: 4248939426868864595}
+  - component: {fileID: 6336025640558758508}
+  - component: {fileID: 5005755920701781385}
   m_Layer: 0
   m_Name: Junk - Bottle
   m_TagString: Untagged
@@ -94,3 +96,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Value: 5
   SpeedMultipler: 1
+--- !u!114 &6336025640558758508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087496297350873505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37f20a7ac4d9a64fa69ee26ce01b053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &5005755920701781385
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3087496297350873505}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.04, y: 0.38}
+  m_Direction: 1
