@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5360829005957393511}
   - component: {fileID: 5294157545762753127}
   - component: {fileID: 8718349218956882634}
+  - component: {fileID: 4759251175001527961}
   m_Layer: 0
   m_Name: Junk - Straw
   m_TagString: Untagged
@@ -134,3 +135,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63, y: 1.795}
   m_EdgeRadius: 0
+--- !u!114 &4759251175001527961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506228048658303893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b2e43d95d692d47aa36ee2935fab93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInTime: 0.5

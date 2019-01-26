@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5360829005957393511}
   - component: {fileID: 4194419896523565061}
   - component: {fileID: 2774330296083848264}
+  - component: {fileID: 8058224131236933631}
   m_Layer: 0
   m_Name: Junk - Pizza
   m_TagString: Untagged
@@ -124,3 +125,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.7099999, y: 1.1549999}
   m_Direction: 0
+--- !u!114 &8058224131236933631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506228048658303893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b2e43d95d692d47aa36ee2935fab93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeInTime: 0.5
