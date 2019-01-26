@@ -43,6 +43,9 @@ public class Spiker : MonoBehaviour
     /// </summary>
     private float _cooldown;
 
+    /// <summary>
+    /// The time the player has been charging for
+    /// </summary>
     private float _chargeTime;
 
     private Grabber _grabber;
@@ -92,9 +95,10 @@ public class Spiker : MonoBehaviour
                 _grabber.GrabOnHitbox();
 
                 //Stretches beak
-                transform.localScale = transform.localScale.SetY(
-                    1 + ReleaseCurve.Evaluate(1f - (_cooldown / CooldownTime))
-                );
+                float curveResult = ReleaseCurve.Evaluate(1f - (_cooldown / CooldownTime));
+                float lerp = Mathf.Lerp(LowRange, HighRange, Mathf.Clamp(_chargeTime / MaxChargeTime, 0f, 1f));
+
+                transform.localScale = transform.localScale.SetY(1 + (curveResult * lerp));
 
 
                 _cooldown -= Time.deltaTime;
