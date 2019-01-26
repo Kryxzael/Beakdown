@@ -74,7 +74,7 @@ public class JunkSpawner : MonoBehaviour
         GenerateAndSpawnWave(_rng.Next(MinInitialItems, MaxInitialItems));
 
         //Run until the game ends
-        while (!this.GetGameManager().GetComponent<Level>().GameRunning)
+        while (this.GetGameManager().GetComponent<Level>().GameRunning)
         {
             //Wait for random seconds
             yield return new WaitForSeconds(RandomFloat(MinSpawnFrequency, MaxSpawnFrequency));
