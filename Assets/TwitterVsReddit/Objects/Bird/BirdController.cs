@@ -59,6 +59,9 @@ public class BirdController : MonoBehaviour
         //Apply movement to player
         Move(axis, MoveSpeed);
 
+        //Rotate the player
+        transform.SetEuler2D(CommonExtensions.RealAngleBetween(transform.Position2D(), transform.Position2D() + Direction.ToVector2()));
+
         /*
          * Grabbing
          */
