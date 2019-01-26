@@ -41,3 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1616298733
+    locked: 0
+  - name: Nest
+    uniqueID: 744012749
+    locked: 0
+  - name: Item
+    uniqueID: 2252323893
+    locked: 0
+  - name: ItemFX
+    uniqueID: 2506921663
+    locked: 0
+  - name: BirdWingBeak
+    uniqueID: 3893616039
+    locked: 0
+  - name: BirdBody
+    uniqueID: 4062622547
+    locked: 0
+  - name: UI
+    uniqueID: 272850759
+    locked: 0
