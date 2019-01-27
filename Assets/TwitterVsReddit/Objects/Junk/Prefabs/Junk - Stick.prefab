@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Value: 5
-  SpeedMultipler: 1
+  SpeedMultipler: 0.5
 --- !u!114 &6046550728861209550
 MonoBehaviour:
   m_ObjectHideFlags: 0

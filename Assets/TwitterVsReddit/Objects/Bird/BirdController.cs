@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -64,10 +65,18 @@ public class BirdController : MonoBehaviourWithID
         {
             Direction = DirectionExtensions.Construct(axis.x, axis.y);
         }
-        
+
 
         //Apply movement to player
-        Move(axis, MoveSpeed);
+        if (GetComponentInChildren<Grabber>().IsGrabbing)
+        {
+            Move(axis, MoveSpeed * GetComponentInChildren<Grabber>().GrabbedItems.Average(i => i.GetComponent<Junk>().SpeedMultipler));
+        }
+        else
+        {
+            Move(axis, MoveSpeed);
+        }
+        
 
         //Rotate the player
         transform.SetEuler2D(CommonExtensions.RealAngleBetween(transform.Position2D(), transform.Position2D() + Direction.ToVector2()));
