@@ -34,11 +34,15 @@ public class UIPopupEffect : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        SpriteRenderer spr = GetComponent<SpriteRenderer>();
+        SpriteRenderer[] spr = GetComponentsInChildren<SpriteRenderer>();
 
         for (float i = 1; i >= 0; i -= 0.05f)
         {
-            spr.color = new Color(1f, 1f, 1f, i);
+            foreach (SpriteRenderer s in spr)
+            {
+                s.color = new Color(1f, 1f, 1f, i);
+            }
+            
             yield return new WaitForSeconds(0.01f);
         }
 

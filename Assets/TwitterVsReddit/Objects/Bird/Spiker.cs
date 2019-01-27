@@ -59,6 +59,11 @@ public class Spiker : MonoBehaviour
     {
         DebugScreenDrawer.Enable("state", "State Machine: " + CurrentState);
 
+        if (!this.GetGameManager().GetComponent<Level>().GameRunning)
+        {
+            return;
+        }
+
         switch (CurrentState)
         {
             case State.None:

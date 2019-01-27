@@ -26,6 +26,14 @@ public class Level : MonoBehaviour
     /// </summary>
     public bool GameRunning { get; private set; }
 
+    [Header("Countdowns")]
+    public Countdown GameStartCountdown;
+    public Countdown GameEndCountdown;
+
+    [Header("Annuncements")]
+    public GameObject Player1WinnerAnnuncement;
+    public GameObject Player2WinnerAnnuncement;
+
     /// <summary>
     /// Begins the game
     /// </summary>
@@ -34,6 +42,8 @@ public class Level : MonoBehaviour
         TimeLeft = new TimeSpan(0, 0, GameTimeSeconds);
         GameRunning = true;
         StartCoroutine(CoTickTime());
+
+        
     }
 
     /// <summary>
@@ -42,6 +52,11 @@ public class Level : MonoBehaviour
     public void EndGame()
     {
         GameRunning = false;
+
+        //Stops the players
+        FindObjectsOfType<BirdController>().ForEach(i => i.Move(Vector2.zero, 0));
+
+        Invoke("AnnounceWinner", 2f);
     }
 
     /// <summary>
@@ -63,15 +78,40 @@ public class Level : MonoBehaviour
         {
             TimeLeft -= new TimeSpan(0, 0, seconds: 1);
             yield return new WaitForSeconds(1);
+
+            //Trigger TIME countdown
+            if (TimeLeft == new TimeSpan(0, 0, 3))
+            {
+                Instantiate(GameEndCountdown);
+            }
         }
+
+        
 
         //Ends the game
         EndGame();
     }
 
+    private void AnnounceWinner()
+    {
+        Nest winnerNest = FindObjectsOfType<Nest>()
+            .OrderByDescending(i => i.TotalValue)
+            .First();
+
+        switch (winnerNest.ID)
+        {
+            case 1:
+                Instantiate(Player1WinnerAnnuncement);
+                break;
+            case 2:
+                Instantiate(Player2WinnerAnnuncement);
+                break;
+        }
+    }
+
     private void Start()
     {
-        StartGame();
+        Instantiate(GameStartCountdown);
     }
 
     private void Update()

@@ -62,3 +62,18 @@ TagManager:
   - name: UI
     uniqueID: 272850759
     locked: 0
+  - name: CH_House
+    uniqueID: 182920993
+    locked: 0
+  - name: CH_House2
+    uniqueID: 819725395
+    locked: 0
+  - name: CH_WingBack
+    uniqueID: 840895435
+    locked: 0
+  - name: CH_Arms
+    uniqueID: 3685780033
+    locked: 0
+  - name: CH_BeakAndWing
+    uniqueID: 744832199
+    locked: 0

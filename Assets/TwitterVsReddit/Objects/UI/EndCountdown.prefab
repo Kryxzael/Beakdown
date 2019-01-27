@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1012174267381145556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1012174267381145558}
+  - component: {fileID: 1012174267381145559}
+  m_Layer: 0
+  m_Name: EndCountdown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1012174267381145558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012174267381145556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.4705548, y: -0.22046, z: -0.105320916}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1012174267381145559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012174267381145556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b995b74d3933c47938848d345039ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Three: {fileID: 4360356348978427628, guid: ac0067f487d73f34fbf7e2e120847a3c, type: 3}
+  Two: {fileID: 4360356348978427628, guid: 51e12664d47c137468a8df2432d522e5, type: 3}
+  One: {fileID: 4360356348978427628, guid: 312ac0374ad90f447add2c0a40b7f2c4, type: 3}
+  Zero: {fileID: 1900858178999915624, guid: 2ab8f231b7c28db49af755b0f3655c48, type: 3}
