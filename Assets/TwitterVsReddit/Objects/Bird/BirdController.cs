@@ -91,6 +91,17 @@ public class BirdController : MonoBehaviourWithID
     {
         //Updates the velocity of the rigidbody
         _rb.velocity = direction * speed;
+
+        //Fix position to map
+        Bounds b = FindObjectOfType<JunkSpawner>().Bounds;
+        if (!b.Contains(transform.position))
+        {
+            transform.position = new Vector3(
+                x: Mathf.Clamp(transform.position.x, b.min.x, b.max.x), 
+                y: Mathf.Clamp(transform.position.y, b.min.y, b.max.y)
+            );
+
+        }
     }
 
     private void OnDrawGizmos()

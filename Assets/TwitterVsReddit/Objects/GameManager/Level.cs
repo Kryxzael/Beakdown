@@ -33,6 +33,7 @@ public class Level : MonoBehaviour
     [Header("Annuncements")]
     public GameObject Player1WinnerAnnuncement;
     public GameObject Player2WinnerAnnuncement;
+    public GameObject DrawAnnuncement;
 
     /// <summary>
     /// Begins the game
@@ -41,9 +42,7 @@ public class Level : MonoBehaviour
     {
         TimeLeft = new TimeSpan(0, 0, GameTimeSeconds);
         GameRunning = true;
-        StartCoroutine(CoTickTime());
-
-        
+        InvokeRepeating("CoTickTime", 0f, 1f);
     }
 
     /// <summary>
@@ -71,25 +70,24 @@ public class Level : MonoBehaviour
             .SingleOrDefault();
     }
 
-    private IEnumerator CoTickTime()
+    private void CoTickTime()
     {
-        //Ticks the time until it reaches zero seconds
-        while (TimeLeft > new TimeSpan(0, 0, 0))
-        {
-            TimeLeft -= new TimeSpan(0, 0, seconds: 1);
-            yield return new WaitForSeconds(1);
+        TimeLeft -= new TimeSpan(0, 0, seconds: 1);
 
-            //Trigger TIME countdown
-            if (TimeLeft == new TimeSpan(0, 0, 3))
-            {
-                Instantiate(GameEndCountdown);
-            }
+        //Trigger TIME countdown
+        if (TimeLeft == new TimeSpan(0, 0, 3))
+        {
+            Instantiate(GameEndCountdown);
+        }
+        else if (TimeLeft == new TimeSpan(0, 0, 0))
+        {
+            //Ends the game
+            CancelInvoke();
+            EndGame();
         }
 
-        
 
-        //Ends the game
-        EndGame();
+        
     }
 
     private void AnnounceWinner()
@@ -103,7 +101,7 @@ public class Level : MonoBehaviour
 
         if (winnerNests.Count() > 1)
         {
-            return;
+            Instantiate(DrawAnnuncement);
         }
         else
         {
@@ -124,6 +122,8 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<AudioSource>().clip.LoadAudioData();
+        GetComponent<AudioSource>().Play();
         Instantiate(GameStartCountdown);
     }
 

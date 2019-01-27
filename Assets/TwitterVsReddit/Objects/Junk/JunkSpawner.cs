@@ -66,6 +66,12 @@ public class JunkSpawner : MonoBehaviour
             _rng = new System.Random(Seed);
         }
 
+        //Wait for game to start
+        while (!this.GetGameManager().GetComponent<Level>().GameRunning)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
         //Generate the first wave
         GenerateAndSpawnWave(_rng.Next(MinInitialItems, MaxInitialItems));
 

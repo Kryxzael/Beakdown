@@ -48,6 +48,8 @@ public class Spiker : MonoBehaviour
     /// </summary>
     private float _chargeTime;
 
+    private bool _shaking;
+
     private Grabber _grabber;
 
     private void Awake()
@@ -80,8 +82,17 @@ public class Spiker : MonoBehaviour
 
                 _chargeTime += Time.deltaTime;
                 transform.localScale = transform.localScale.SetY(BeakDrawbackAnimation.Evaluate(_chargeTime / MaxChargeTime));
+
+                if (!_shaking && _chargeTime >= MaxChargeTime)
+                {
+                    _shaking = true;
+                    GetComponentInParent<BirdController>().StartCoroutine("CoShake");
+                }
                 break;
             case State.Grab:
+                _shaking = false;
+                GetComponentInParent<BirdController>().StopCoroutine("CoShake");
+
                 if (_cooldown <= 0)
                 {
                     if (_grabber.IsGrabbing)
