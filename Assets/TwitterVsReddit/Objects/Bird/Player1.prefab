@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 245036908910389846}
   - component: {fileID: 2425463817646335981}
+  - component: {fileID: 668626261740728197}
   m_Layer: 0
   m_Name: BlueBirdBody2
   m_TagString: Untagged
@@ -79,6 +80,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &668626261740728197
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577086054879550776}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.07
 --- !u!1 &2940371055278866804
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +358,9 @@ MonoBehaviour:
   VerticalAxis: Y1
   MoveSpeed: 5
   Direction: 0
+  Stunned: 0
+  StunTime: 0.25
+  StunPushForce: 10
 --- !u!50 &715734806
 Rigidbody2D:
   serializedVersion: 4

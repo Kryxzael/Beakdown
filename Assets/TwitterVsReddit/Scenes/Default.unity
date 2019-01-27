@@ -384,7 +384,7 @@ PrefabInstance:
     - target: {fileID: 6571575754419420324, guid: 563ed075a9c454444871f5f6b8f77f20,
         type: 3}
       propertyPath: m_Name
-      value: BlueBirdAnim
+      value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 4118194276298669944, guid: 563ed075a9c454444871f5f6b8f77f20,
         type: 3}
@@ -440,6 +440,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 715734805, guid: 563ed075a9c454444871f5f6b8f77f20, type: 3}
+      propertyPath: StunTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 715734805, guid: 563ed075a9c454444871f5f6b8f77f20, type: 3}
+      propertyPath: StunPushForce
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563ed075a9c454444871f5f6b8f77f20, type: 3}
@@ -618,6 +626,28 @@ MonoBehaviour:
   ExclustionZoneLayer: 
   SpawnInfo:
   - {fileID: 11400000, guid: b3c175f44bd327343b23e20d1459c73e, type: 2}
+--- !u!1 &1508226464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 577086054879550776, guid: 563ed075a9c454444871f5f6b8f77f20,
+    type: 3}
+  m_PrefabInstance: {fileID: 715734803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1508226465
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508226464}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.07
 --- !u!1001 &2904719589104022115
 PrefabInstance:
   m_ObjectHideFlags: 0

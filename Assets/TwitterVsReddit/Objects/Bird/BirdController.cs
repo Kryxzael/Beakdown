@@ -21,7 +21,14 @@ public class BirdController : MonoBehaviourWithID
     public float MoveSpeed;
 
     [Header("Status")]
-    public Direction8 Direction; 
+    public Direction8 Direction;
+
+    [Header("Stunning")]
+    public bool Stunned;
+    public float StunTime = 0.1f;
+    public float StunPushForce;
+
+
 
     /// <summary>
     /// The rigidbody of the player
@@ -41,8 +48,8 @@ public class BirdController : MonoBehaviourWithID
          *Basic movement
          */
 
-        //Do not move if game is finished
-        if (!this.GetGameManager().GetComponent<Level>().GameRunning)
+        //Do not move if game is finished or you are stunned
+        if (!this.GetGameManager().GetComponent<Level>().GameRunning || Stunned)
         {
             return;
         }
@@ -81,5 +88,48 @@ public class BirdController : MonoBehaviourWithID
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.Position2D(), transform.Position2D() + Direction.ToVector2());
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Spiker spiker = collision.GetComponent<Spiker>();
+
+        //Collision with another beak
+        if (spiker != null && spiker.CurrentState == Spiker.State.Grab)
+        {
+            StartCoroutine("CoStun", CommonExtensions.VectorFromDegree(transform.Position2D().RealAngleBetween(collision.transform.position)));
+        }
+    }
+
+    private IEnumerator CoStun(Vector2 pushDirection)
+    {
+        if (Random.value <= 1 / 3f)
+        {
+            GetComponentInChildren<Grabber>()?.ReleaseAll();
+            if (GetComponentInChildren<Spiker>() != null)
+            {
+                GetComponentInChildren<Spiker>().CurrentState = Spiker.State.None;
+            }
+        }
+
+
+        Debug.Log(StunPushForce);
+        _rb.velocity = pushDirection * StunPushForce * -Vector2.one;
+        StartCoroutine("CoShake");
+        Stunned = true;
+        yield return new WaitForSeconds(StunTime);
+        Stunned = false;
+        StopCoroutine("CoShake");
+
+    }
+
+    private IEnumerator CoShake()
+    {
+        float originalRotation = transform.rotation.eulerAngles.z;
+        while (true)
+        {
+            transform.SetEuler2D(Random.Range(-20, 20) + originalRotation);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
