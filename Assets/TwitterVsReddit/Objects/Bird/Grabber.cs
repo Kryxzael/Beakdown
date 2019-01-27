@@ -39,6 +39,12 @@ public class Grabber : MonoBehaviour
     /// <param name="item"></param>
     public void Grab(Grabbable item)
     {
+        //The object is in a nest and ungrabbale
+        if (FindObjectsOfType<Nest>().Any(i => i.JunkInNest.Contains(item.GetComponent<Junk>())) && !item.CanGrabInNest)
+        {
+            return;
+        }
+
         //Item is already picked up
         if (item.Grabber != null)
         {
