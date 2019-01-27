@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TwitterVsReddit/Scenes/MenuMain.unity
     guid: deaee537ae65e7c478fe102072873722
+  - enabled: 1
+    path: Assets/TwitterVsReddit/Scenes/Default.unity
+    guid: 0d3396a98a3d4e544a8862bc8537402d
   m_configObjects: {}
