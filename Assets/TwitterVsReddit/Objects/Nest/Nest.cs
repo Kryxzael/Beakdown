@@ -34,11 +34,6 @@ public class Nest : MonoBehaviourWithID
         get => JunkInNest.Sum(i => i.Value);
     }
 
-    public int GetID()
-    {
-        throw new NotImplementedException();
-    }
-
     private void Awake()
     {
         _collider = GetComponent<Collider2D>();
