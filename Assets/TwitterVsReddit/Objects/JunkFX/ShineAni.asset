@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adef74459c54efe4da176991c19c4aed, type: 3}
+  m_Name: ShineAni
+  m_EditorClassIdentifier: 
+  Frames:
+  - Sprite: {fileID: 21300000, guid: 949fbd185d74ead42917cfc8ffe7e6d9, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: a6facb78f3e43e046beaa2624bd77b77, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 24c27307f20722a48b8eb74e8ae94f5e, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 14df296b0420a2b4ab6b7eea93ca5344, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 3ed07db9e835103429a826cbb09ea264, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: fa5d35054b3dede4d93b1e78c4bf09dc, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 7997ca1fd6be9844aba1b35234dbe149, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 242549c4035c79b46bd6362b1e3a266f, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 6738aedeaaf5d8847a7f5b928e109c14, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 0f70681dbd89f0147808c5c551c09ee7, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 78250854e007166458cd9d46d510f6e8, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: ed75e36801b6f154eab9c8e5ab408142, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: dddbda5c0e6d9684080ca6d42e17cb66, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 47e204f9593020346ad4f48c1d32b1a3, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 4245deec102655d40ba9f8f9f6726f57, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: aa616446db774634e8e663b82935705d, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: b7e8140d87448b14db27fd109ffbab5f, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 29b0b2687023ff04084fa75347a5f293, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: eeac544f4acd71540897d0d4dd3aee4d, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: f9089a4678e9090429ca40434561682a, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 411eda51a2d897442ac33d25c5b1b03d, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 5aedf9acd213339469c45783f07f214a, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: d76553aa180327945aebc15c437a9442, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: 8930628110e363348b3c47b9ea3b542e, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: aec712790869ced49bcebeba8a98085a, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 21300000, guid: ee046babad9cbb14385091d8173d053e, type: 3}
+    FrameTimeMultiplier: 1
+  - Sprite: {fileID: 0}
+    FrameTimeMultiplier: 120
+  FrameTime: 1
+  FrameTimeDivider: 60
