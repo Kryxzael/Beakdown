@@ -94,19 +94,32 @@ public class Level : MonoBehaviour
 
     private void AnnounceWinner()
     {
-        Nest winnerNest = FindObjectsOfType<Nest>()
+        
+
+        IGrouping<int, Nest> winnerNests = FindObjectsOfType<Nest>()
             .OrderByDescending(i => i.TotalValue)
+            .GroupBy(i => i.TotalValue)
             .First();
 
-        switch (winnerNest.ID)
+        if (winnerNests.Count() > 1)
         {
-            case 1:
-                Instantiate(Player1WinnerAnnuncement);
-                break;
-            case 2:
-                Instantiate(Player2WinnerAnnuncement);
-                break;
+            return;
         }
+        else
+        {
+            switch (winnerNests.Single().ID)
+            {
+                case 1:
+                    Instantiate(Player1WinnerAnnuncement);
+                    break;
+                case 2:
+                    Instantiate(Player2WinnerAnnuncement);
+                    break;
+            }
+        }
+
+
+        
     }
 
     private void Start()
