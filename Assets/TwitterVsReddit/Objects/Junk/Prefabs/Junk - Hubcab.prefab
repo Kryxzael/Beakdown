@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 7363769082892469589}
   - component: {fileID: 4978266352572648267}
   - component: {fileID: 5360829005957393511}
-  - component: {fileID: 1507821191072215325}
-  - component: {fileID: 5693965768360027073}
-  - component: {fileID: 4627984175481061229}
+  - component: {fileID: 5294157545762753127}
+  - component: {fileID: 4759251175001527961}
+  - component: {fileID: 5303007979837013473}
   m_Layer: 0
-  m_Name: Junk - Bomb
+  m_Name: Junk - Hubcab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6506228048658303893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.394371, y: -3.0837357, z: 0}
-  m_LocalScale: {x: 1.73008, y: 1.73008, z: 2.1626}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: -2042643403
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d8423120f60ae4b99a080680826ed78b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f7f07b52e490fb48ae149a4ce38a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,9 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0f20364dc60f54dbb807f083a6ec2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 20
-  SpeedMultipler: 0.6
---- !u!114 &1507821191072215325
+  Value: 40
+  SpeedMultipler: 0.5
+--- !u!114 &5294157545762753127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,23 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChanceOfGrabInNest: 0.25
---- !u!58 &5693965768360027073
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6506228048658303893}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.17}
-  serializedVersion: 2
-  m_Radius: 0.31
---- !u!114 &4627984175481061229
+--- !u!114 &4759251175001527961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,3 +123,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeInTime: 0.5
+--- !u!58 &5303007979837013473
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506228048658303893}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5

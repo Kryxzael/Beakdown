@@ -53,23 +53,19 @@ public class JunkSpawner : MonoBehaviour
     public JunkSpawnRate[] SpawnInfo;
 
     private System.Random _rng;
-
-    public JunkSpawner()
+    private IEnumerator Start()
     {
         //Set up the RNG
 
         if (UseRandomSeed)
         {
-            _rng = new System.Random();
+            _rng = new System.Random(UnityEngine.Random.Range(0, int.MaxValue));
         }
         else
         {
             _rng = new System.Random(Seed);
         }
-    }
 
-    private IEnumerator Start()
-    {
         //Generate the first wave
         GenerateAndSpawnWave(_rng.Next(MinInitialItems, MaxInitialItems));
 
