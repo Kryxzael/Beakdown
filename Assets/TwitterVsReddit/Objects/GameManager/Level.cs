@@ -114,10 +114,4 @@ public class Level : MonoBehaviour
         Instantiate(GameStartCountdown);
     }
 
-    private void Update()
-    {
-        DebugScreenDrawer.Enable("time", "Time: " + TimeLeft);
-        DebugScreenDrawer.Enable("run", "InGame: " + GameRunning);
-    }
-
 }

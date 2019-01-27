@@ -38,9 +38,4 @@ public class Nest : MonoBehaviourWithID
     {
         _collider = GetComponent<Collider2D>();
     }
-
-    private void Update()
-    {
-        DebugScreenDrawer.Enable("Nest" + ID, "Score" + ID + ": " + TotalValue);
-    }
 }
